@@ -509,7 +509,7 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //var y = "ABC";
             //bool jahvõiei = false; //kas true või false.
 
-            /* KOMPOOSIITANDMETÜÜBID */
+            /* K O M P O O S I I T A N D M E T Ü Ü B I D */
             // 1 . masiiv
 
             /* 1 - MASIIV */
@@ -582,6 +582,28 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
                                                     //     väärtust mille andmetüüp on kompleksne, ja vajab konstruktori väljakutset.
                                                     //     Komplekssetel andmetüüpidel on tihti vaja sisemiselt üles ehitada ennast
                                                     //     teiste andmetüüpide põhjal.
+
+            /* J U H U A R V */
+
+            //Random klass annab võimaluse programeerijale genereerida pseudo-random väärtusi.
+            Random juhuarv = new Random();      //Klassinimi random on kasutatav kui andmetüüp mis ütleb, et järgnevas muutujas nimega juhuarv on
+                                                // uus random tüüpi objekt mis omistatakse sinna new Random() käsuga. Konstruktor ulatab muutuja sisse 
+                                                //randim tüüpi klassi. Antud muutuja ei ise ole see juhuarv, ta toimib kui juhuarvu genereeraator.
+                                                //tegu juhuarvude generaatoriga. Random on C#-i pakett, mis võimaldab genereerida juhuslikke arve.
+                                                //Random on C#-i pakett, mis võimaldab genereerida juhuslikke arve.
+                                                //Juhuarvu tekitamiseks tuleb luua uus muutuja, mille andmetüübiks on "Random".
+                                                //Muutuja nimeks on "juhuarv". Sellesse muutujasse omistatakse kaitstud sõna "new" abil uus juhuarvude generaator,
+                                                //mis on valmis juhuarve genereerima.
+                                                //äilma parameetrita tagastab andmetüübi maksimaalpiirides mingisuguse arvu.
+            int miski = juhuarv.Next(5);        //.Next() ühe parameetriga anname talle ülemise piiri, mille alumine piir on vaikseväärtusena 0
+            int miski = juhuarv.Next(-5, 5);    //.Next() kahe parameetriga anname talle ülemise ja alumise piiri, mille vahel ta genereerib juhuarvu. mis võib olla nii
+                                                //negatiivne kui positiivne arv, aga ei saa olla täpselt võrdne ülemise piiriga.
+            double aDbl = juhuarv.NextDouble(); //.NextDouble() tagastab arvvahemikus 0.0 kuni 1.0 mingi juhusliku komakohaga arvu.
+            float aFloat = juhuarv.NextSingle();//.NextSingle() tagastab arvvahemikus 0.0 kuni 1.0 mingi juhusliku komakohaga arvu,
+                                                //kuid tagastatav väärtus on float-tüüpi, mitte double-tüüpi nagu NextDouble() puhul.
+
+
+
 
 
 
