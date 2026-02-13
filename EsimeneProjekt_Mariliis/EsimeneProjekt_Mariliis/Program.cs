@@ -607,6 +607,42 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
 
             Dictionary < List<int>string, > sõnastik = new Dictionary<string, int>();
 
+            /* 4 - TUPLE (HULK) */
+
+            //Tuple on komposiitandmetüüp, mis võimaldab hoida endas mitmeid erinevat tüüpi andmeid,
+            //ilma et oleks vaja luua nende jaoks eraldi klassi või struktuuri.
+            //Tuple'i kasutatakse siis, kui soovitakse hoida koos mitut erinevat tüüpi andmeid, mis omavad loogilist seost,
+            //kuid ei vaja keerukamat struktuuri. Tuple'i elementidele pääseb ligi nende järjestuse kaudu, kasutades Item1, Item2 jne.
+            //noolsulgude vahele asetatakse erinevad andmetüübid, mis võivad olla erinevad, ning sulgude vahele asetatakse ka elementide arv,
+            //mis võib olla ükskõik kui suur. Kui esimene andmetüüp on string siis on esimene objekt ka string tüüpi, kui teine on list siis on teine 
+            //objekt ka list tüüpi . Võtab vastu kõiki andmetüüpe kaasaarvatud iseenast.
+
+            Tuple<string, string> piparmündiTupla = new Tuple<string, string>("vasak tupla", "parem tupla");
+
+            //Erinevalt teistest komposiitandmetüüpidest, Tuple'i sisu ei  ole võimalik ükshaaval muuta vaid tuleb kogu tuple protsessi käigus 
+            //rekonstrueerida olemasolevatest ja uutest uus tuple.
+
+            //Esimene tekitusviis:
+            Tuple<bool, int, string> someTuple = new Tuple<bool, int, string>(true, 1,"abc");
+            //Andmetüübi kirjeldus Tuple näitab, et tegu on tuplaga, Tuple'i noolsulgude vahel, on tuplas olevate elementide andmetüüp, antud juhul on siin
+            //bool, int ja string. Muutuja enda nimeks, kus andmeid hoitakse on "someTuple". Sellesse muutujasse omistatakse kaitstud sõna "new" abil uus tupla,
+            //mille elementide andmetüübid on vastavalt bool, int ja string. Tupla elementideks on omistatud sulgude vahel olevad väärtused
+
+            //Tuple töötlemine:
+            //Ütleme, et on olemas ülaltoodud piparmündiTupla. See on tiple Justnagu päris tupla, tahame sealt ühe ära süüa, ehk asendad ühe kashest objektist
+            //uue sõnaga mis loeks njäm njäm njäm
+            //Tuuplet ei saa muta aga seda saab rekombineerida seega teeme nii:
+            string uuspool = "njäm njäm njäm";
+            piparmündiTupla = new Tuple<string, string>(piparmündiTupla.Item1, uuspool);
+
+            //Tuple adresseerimine:
+            //justanagu eelnevalt näites saame me tuple objekte adresseerida eraldi. Selle jaoks on iga tuple muutuja sees genereeritud
+            //muutujad ITEM.nr millega saame adresseerida soovitud elementi.
+            //erinevalt loendist ja massiivist ei ole esimene number 0 vaid 1, seega esimene element on Item1, teine element on Item2 jne.
+            string pool1 = piparmündiTupla.Item1; //antud juhul on pool1 väärtuseks "vasak tupla"
+            string pool2 = piparmündiTupla.Item2; //antud juhul on pool2 väärtuseks "njäm njäm njäm"
+
+
 
 
             ///* Muutuja nime näide: */
