@@ -511,6 +511,9 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
 
             /* K O M P O O S I I T A N D M E T Ü Ü B I D */
             // 1 . masiiv
+            // 2 . loend
+            // 3. sõnastik
+            // 4. tuple (hulk)
 
             /* 1 - MASIIV */
             // [] - masiiv on komposiit andmetüüp mille sees saab olla mitmeid sama tüüpi lihtandmeid. Massiivi tähistatakse kantsulgudega.
@@ -563,6 +566,47 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
                                                             //omistatakse kaitstud sõna "new" abil uus ja tühi loend täisarvudega kuid loend omab kolme
                                                             //tühja elementi. Elementide arv sätestakase peale noolsulge olevate tavaliste sulgude vahele.
                                                             //Arve, ega väärtusi, nende elementide sees veel ei ole.
+
+            /* 3 -SÕNASTIK */
+            //Dictionary<T, T> -> Sõnastik on komposiitandmetüüp, mis koosneb võtme-väärtuse paaridest. Erinevalt eelnevatest komporiitandme tüüpidest
+            //saab Dictionary omada erinevat tüüpi andmeid võtmetena ja väärtustena. Millest esimene on võtme andmetüüp ja teine võtme küljes olev väärtuse andmetüüp. 
+            //need andmetüübid saavad üksteisest erinedavõi isegi omada klasse andmetüüpiden ning ka muid komporiitandmetüüpe.
+
+            // Esimene tekitusviis:
+
+            Dictionary<int, string> sõnastik = new Dictionary<sint., string>();
+            //Andmetüübi kirjeldus Dictionary näitab, et tegu on sõnastikuga, ehk loendiga võtioväärtus paaridest. Dictionary noolsulgude vahel,
+            //on sõnastikus olevate võtmete ja väärtuste andmetüüp, antud juhul on siin võtmed sõned ehk "int" ja väärtused täisarvud ehk "string".
+            //Muutuja enda nimeks, kus andmeid hoitakse on "sõnastik". Sellesse muutujasse omistatakse kaitstud sõna "new" abil uus ja tühi sõnastik,
+            //mille võtmed on täisarvud ja väärtused stringid. 
+
+            // Teine tekitusviis:
+
+            Dictionary<int, string> sõnastik2 = new Dictionary<sint., string>() { {1, "astelpaju" }, {2, "muulukas" }, { 3, "maasikas"} };
+            //Andmetüübi kirjeldus Dictionary näitab, et tegu on sõnastikuga, ehk loendiga võtioväärtus paaridest. Dictionary noolsulgude vahel,
+            //on sõnastikus olevate võtmete ja väärtuste andmetüüp, antud juhul on siin võtmed sõned ehk "int" ja väärtused täisarvud ehk "string".
+            //Muutuja enda nimeks, kus andmeid hoitakse on "sõnastik". Sellesse muutujasse omistatakse kaitstud sõna "new" abil uus sõnastik mille väärtused
+            //asuvad loogeliste sulgude sees listina, kus on kolme sõne-tüüpi elementi, mis on omistatud kolmele täisarvulisele võtmele.
+            //Esimene element on sõne "astelpaju" mille võtmeks on 1, teine element on sõne "muulukas" mille võtmeks on 2 ja
+            //kolmas element on sõne "maasikas" mille võtmeks on 3.
+
+            //Sõnastiku tööriistad:
+            sõnastik.Add(4, "tikker");   //.Add() võimaldab olemas oleva sõnaraamatu lõppu lisada elementi. Sulgude vahel on andmed, mille andmetüübid
+                                         //on vastavad täiendavav sõnastiku andmetüübi säteteg
+            sõnastik.Remove(2);          // .Remove() võimaldab sõnaraamatust eemaldada elementi, sulgude vahel on andmed, mille andmetüüp on vastav sõnastiku võtme andmetüübile
+                                         //antud juhul on tegu täisarvuga 2, mis on sõnastikus oleva elemendi "muulukas" võti. Selle käsuga eemaldatakse sõnastikust see element
+            sõnastik.Clear();            // .Clear() võimaldab sõnaraamatust eemaldada kõik elemendid, sõnastik jääb tühjaks kuid endiselt olemasolevaks objektiks
+            sõnastik.ContainsKey(4);     // .ContainsKey() võimaldab kontrollida kas sõnastikus on olemas element, mille võtme andmetüüp on sulgude vahel olev
+                                         // andmetüüp ja väärtus on sulgude vahel olev andmed
+                                         //antud juhul kontrollitakse kas sõnastikus on element, mille võti on täisarv 4.
+                                         //Kui selline element on olemas tagastab true, kui sellist elementi ei ole tagastab false.
+            sõnastik.ContainsValue("tikker"); //.ContainsValue() võimaldab kontrollida kas sõnastikus on olemas element, mille väärtuse andmetüüp on sulgude vahel olev
+                                              // andmetüüp ja väärtus on sulgude vahel olev andmed
+                                              //antud juhul kontrollitakse kas sõnastikus on element, mille väärtus on sõne "tikker".
+                                              //Kui selline element on olemas tagastab true, kui sellist elementi ei ole tagastab false.
+
+            Dictionary < List<int>string, > sõnastik = new Dictionary<string, int>();
+
 
 
             ///* Muutuja nime näide: */
