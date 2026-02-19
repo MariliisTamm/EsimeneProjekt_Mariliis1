@@ -1,4 +1,5 @@
-﻿using System; //<-- enne nimeruumi, viidatakse selles failis/klassis kasutatud pakettidele/moodulitele ja süsteemi muudele osadele
+﻿using System;
+using System.ComponentModel.Design; //<-- enne nimeruumi, viidatakse selles failis/klassis kasutatud pakettidele/moodulitele ja süsteemi muudele osadele
 //süsteemi muuks osaks võib olla kas operatsioonisüsteemi võimalused või ka teised projektid. Teised projektid viidatakse tavaliselt solution (.sln)
 //failist.
 
@@ -509,6 +510,149 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //var y = "ABC";
             //bool jahvõiei = false; //kas true või false.
 
+
+            /* S Õ N E T Ö Ö R I I S T A D */
+            //sõnetööriistad on tekstilise andme töötluseks tööriistad mis teevad kasutajale mingid tegevused ära või lihtsamakas. Neid on vaja tihti programmi sisendi 
+            //stanardiseerimiseks ning kasutaja sisestusvigade vältimiseks.
+
+            string minuLause = "täna hommikukl jõin ära terve ploki monsterit, aga üles ei ärganud, tahan veel magada";
+            Console.WriteLine(minuLause.Lenght);            //sõne tööriist tagastab selle süne pikkuse, ehk mitu märki sõnes on, koos tühikutega.
+                                                            //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi, antud juhul "Length"
+            Console.WriteLine(minuLause.ToUpper());         //sõne tööriist mis tagastab sõne kõik suurtähed,
+                                                            //sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi, antud juhul "ToUpper"
+            Console.WriteLine(minuLause.ToUpper());         // sõne tööriist mis tagastab sõne kõik väiketähed,
+                                                            //sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi, antud juhul "ToLower"
+            string tuvastus ="Kas lauses on sõna ´monsterit´?" + minuLause.ToLower().Contains("monsterit"); //sõne tööriist mis tagastab true või false, olenevalt sellest kas sõne sisaldab enda sees sõna "monsterit" või mitte
+                                                                                                            //sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                                                                            //antud juhul "Contains", ning sulgude vahele kirjutada sõna mida otsime
+            bool tuvastus2 = minuLause.StartsWith("täna");  //sõne tööriist mis tagastab true või false, olenevalt sellest kas sõne algab sõnaga "täna" või mitte
+                                                            //sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                            //antud juhul "StartsWith", ning sulgude vahele kirjutada sõna mida otsime
+            bool tuvastus3 = minuLause.EndsWith("magada");  //sõne tööriist mis tagastab true või false, olenevalt sellest kas sõne lõpeb sõnaga "magada" või mitte
+                                                            //sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                            //antud juhul "EndsWith", ning sulgude vahele kirjutada sõna mida otsime
+            Console.WriteLine(tuvastus);                //kuvame käsureale tuvastus muutujas oleva sõnumi koos true/false väärtusega
+            Console.WriteLine(minuLause.Trim());        //sõne tööriist mis eemaldab sõne algusest ja lõpust tühikud, ning tagastab sõne ilma nendeta
+                                                        //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi, antud juhul "Trim"string[}]
+            Console.WriteLine(minuLause.Replace("monsterit", "energiajooki")); //sõne tööriist mis asendab sõnes sõna "monsterit" sõnaga "energiajooki"
+                                                                               //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                                               //antud juhul "Replace", ning sulgude vahele kirjutada sõna mida otsime ja sõna millega asendada
+
+            
+            string[] lauseOsad = minuLause.Split(' ');  //sõne tööriist mis jagab sõne osadeks, ning tagastab need osad massiivina. Antud juhul jagatakse sõne osadeks tühiku kohalt, ning iga sõna on eraldi massiivi element
+                                                        //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                        //antud juhul "Split", ning sulgude vahele 
+            foreach (var osa in lauseOsad)              //tsükkel mis käib läbi lauseOsad massiivi iga elemendi, ning omistab selle sõna muutujale
+            {
+                Console.WriteLine(osa);                 //kuvame käsureale sõna muutujas oleva sõna
+            }
+            
+            
+            bool isBig = false;
+            for (int i = 0; i < lauseOsad.Length; i++) //tsükkel mis käib läbi lauseOsad massiivi iga elemendi, ning omistab selle sõna muutujale
+            {
+                if (isBig = true)
+                {
+                    lauseOsad[i] = lasuseOsad[i].ToUpper();
+                }
+                else
+                {
+                    lauseOsad[i] = lauseOsad[i].ToLower();
+                }
+                isBig = !isBig;
+            }
+
+            
+            /* konkatenatsioonoi võimalused */
+            string töödeldudLause = string.Join(" ", lauseOsad);    //sõne tööriist mis liidab sõne osad kokku üheks sõneks, ning eraldab need osad tühikuga.
+                                                                    //Antud juhul liidetakse lauseOsad massiivi sõnad kokku üheks sõneks, ning iga sõna vahele pannakse tühik
+                                                                    //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                                    //antud juhul "Join", ning sulgude vahele 
+            Console.WriteLine(töödeldudLause);                      //kuvame käsureale töödeldudLause muutujas oleva sõnumi
+            List<string> menüü= new List<string>() { "kiluvõileib", "suitsukala", "hapukapsas", "verivorst"};   //tekitame string
+            string väljundLause = "Need on meie menüüs: ";  //tekitame string tüüpi muutuja, mille väärtuseks on sõnum "Need on meie menüüs: "
+            foreach (var söök in menüü)                     //tsükkel mis käib läbi menüü listi iga elemendi, ning omistab selle söök muutujale
+            {
+                väljundLause += söök + ", ";                //lisame väljundLause sõnumile iga sööginime koos komaga ja tühikuga
+            }
+            Console.WriteLine(väljundLause);                //kuvame käsureale väljundLause muutujas oleva sõnumi koos menüü elementidega
+                                                            //sõne tööriist mis teisendab sõne osad listiks, ning tagastab selle listina. Antud juhul teisendatakse lauseOsad massiiv listiks, kus iga sõna on eraldi listi element
+                                                            //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                            //antud juhul "ToList", ning sulgude vahele
+            
+            
+            string eesnimi = "Julius";                      //tekitame string tüüpi muutuja, mille väärtuseks on sõnum "Julius"
+            string perekonnanimi = "Caesar";
+            string amet = "noahoidik";
+            string kuulusKeiser = string.Concat(eesnimi, " ", perekonnanimi, " oli kuulus ", amet); //sõne tööriist mis liidab sõned kokku üheks sõneks. Antud juhul liidetakse eesnimi, perekonnanimi ja amet muutujate sõned kokku üheks sõneks, ning nende vahele pannakse tühik
+                                                                                                    //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                                                                    //antud juhul "Concat", ning sulgude vahele eesnimi, perekonnanimi ja amet
+            Console.WriteLine(kuulusKeiser);                //kuvame käsureale kuulusKeiser muutujas oleva sõnumi
+
+            string kuulusKeiser2 = $"{eesnimi} {perekonnanimi} oli kuulus {amet}"; //sõne interpolatsioon, mis liidab sõned kokku üheks sõneks. Antud juhul liidetakse eesnimi, perekonnanimi ja amet muutujate sõned kokku üheks sõneks, ning nende vahele pannakse tühik
+                                                                                   //Sõne interpolatsiooni kasutamiseks tuleb stringi algusesse panna $ märk, ning sulgude vahele 
+            Console.WriteLine(kuulusKeiser2);               //kuvame käsureale kuulusKeiser2 muutujas oleva sõnumi
+
+
+
+            /*escape caracter teksti vormindamiseks */
+            Console.WriteLine("A \n B");        //sõne tööriist mis lisab sõne vahele reavahetuse, ning tagastab selle sõne koos reavahetusega. Antud juhul lisatakse sõne "A" ja "B" vahele reavahetus, ning tagastatakse sõne koos reavahetusega
+                                                //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                //antud juhul "Replace", ning sulgude vahele \n
+            Console.WriteLine(" \\ ");          //sõne tööriist mis lisab sõne vahele kaldkriipsu, ning tagastab selle sõne koos kaldkriipsuga. Antud juhul lisatakse sõne vahele kaldkriips, ning tagastatakse sõne koos kaldkriipsuga
+                                                //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                //antud juhul "Replace", ning sulgude vahele \\
+            Console.WriteLine("1 \t 2");        //sõne tööriist mis lisab sõne vahele tabulaatori, ning tagastab selle sõne koos tabulaatoriga. Antud juhul lisatakse sõne "1" ja "2" vahele tabulaator, ning tagastatakse sõne koos tabulaatoriga
+                                                //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                //antud juhul "Replace", ning sulgude vahele \t
+            Console.WriteLine("AaF\ba");        //sõne tööriist mis lisab sõne vahele backspace'i, ning tagastab selle sõne koos backspace'iga. Antud juhul lisatakse sõne "AaF" ja "a" vahele backspace, ning tagastatakse sõne koos backspace'iga
+                                                //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                //antud juhul "Replace", ning sulgude vahele \b
+            Console.WriteLine(" \"");          //sõne tööriist mis lisab sõne vahele lainelise kaldkriipsu, ning tagastab selle sõne koos lainelise kaldkriipsuga. Antud juhul lisatakse sõne vahele laineline kaldkriips, ning tagastatakse sõne koos lainelise kaldkriipsuga
+                                               //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                               //antud juhul "Replace", ning sulgude vahele \"
+            Console.WriteLine(" \' ");         //sõne tööriist mis lisab sõne vahele lainelise kaldkriipsu, ning tagastab selle sõne koos lainelise kaldkriipsuga. Antud juhul lisatakse sõne vahele laineline kaldkriips, ning tagastatakse sõne koos lainelise kaldkriipsuga
+                                               //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                               //antud juhul "Replace", ning sulgude vahele \'
+            Console.WriteLine("|" + amet.PadLeft(30) + "|");    //sõne tööriist mis lisab sõne vahele tühikuid, ning tagastab selle sõne koos tühikutega. Antud juhul lisatakse sõne "noahoidik" ette tühikuid nii palju, et sõne "noahoidik" oleks 30 märki pikk, ning tagastatakse sõne koos tühikutega
+                                                                //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                                //antud juhul "PadLeft", ning sulgude vahele 30
+            Console.WriteLine("|" + amet.PadRight(30) + "|");   //sõne tööriist mis lisab sõne vahele tühikuid, ning tagastab selle sõne koos tühikutega. Antud juhul lisatakse sõne "noahoidik" järele tühikuid nii palju, et sõne "noahoidik" oleks 30 märki pikk, ning tagastatakse sõne koos tühikutega
+                                                                //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
+                                                                //antud juhul "PadRight", ning sulgude vahele 30
+            Console.WriteLine("""
+                bla bla bla
+                 bla
+                 bla
+                 bla
+                 bla
+                 bla
+                 bla
+                 bla
+                 bla
+                 bla
+
+                """);           //sõne tööriist mis võimaldab kirjutada mitmerealise sõne, ning tagastab selle sõne koos reavahetustega.
+                                //Antud juhul kirjutatakse kolme jutumärgi vahele reavahetustega sõne, ning tagastatakse see sõne koos reavahetustega
+                                //Sõne tööriista kasutamiseks tuleb kolme jutumärgi vahele kirjutada sõne, ning tagastatakse see sõne koos reavahetustega
+
+
+            /* Stringi elementide adresseerimine*/
+            //kuna srtring on massiiv siis saab stringi elemente "tähti" adresseerida nagu tavalist massiivi
+            foreach (var täht in perekonnanimi) //tsükkel mis käib läbi perekonnanimi sõne iga tähe, ning omistab selle tähe muutujale
+            {
+                Console.WriteLine(täht);         //kuvame käsureale täht muutujas oleva tähe
+            }
+            for (int i = 0; i < perekonnanimi.Length; i++) //tsükkel mis käib läbi perekonnanimi sõne iga tähe, ning omistab selle tähe muutujale
+            {
+                Console.WriteLine(perekonnanimi[i]); //kuvame käsureale perekonnanimi sõne i-nda tähe
+            }
+            Console.WriteLine(perekonnanimi.IndexOf("r"));  //sõne tööriist mis tagastab sõne i-nda tähe indeksinumbri, ehk asukoha sõnes. Antud juhul tagastatakse sõne "Caesar" tähe "r" indeksinumber, ehk asukoht sõnes
+                                                            //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis nimi,
+                                                            //antud juhul "IndexOf", ning sulgude vahele "r"
+
+
+
             /* K O M P O O S I I T A N D M E T Ü Ü B I D */
             // 1 . masiiv
             // 2 . loend
@@ -536,6 +680,9 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //                                    //mitu elementi massiivis on  ja tagastab selle väärtuse. selles näites omistatakse tagastava 
             //                                    //väärtus muutujassse kuiPaljuOn. Väärtus saab olla ainult täis arv sest poolikuid või osalisi elemete
             //                                    //ei ole olemas
+            //bool kasOn = Array.IndexOf(uusMassiiv, 2);    //masiivimeetod IndexOf mille saame kasutusele võtta Array paketi alt.
+                                                            //Otsib massiivist kindlat elementi, ning tagastab selle element asukoha indeksinumbri massiivis.
+                                                            //Antud juhul otsitakse massiivist uusMassiiv elementi 2, ning tagastatakse selle element asukoha indeksinumber massiivis
 
 
             /* 2 - LOEND */
