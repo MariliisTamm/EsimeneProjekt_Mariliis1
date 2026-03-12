@@ -8,6 +8,50 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
 {
     internal class Program //<-- programmi klass, mis on ka omakorda konteiner tüüp, Kus sees on kogu programmi kood 
     {
+
+        //Struct anatoomia:
+        //A - structio jaoks tekitatud niometuumi tekitamine mis omnmakorda vajab juuredpääsu modifikaatotrit, andmetüübi nime ja
+        //      sätestust et tegu on structiga (A.3). Sätestusele järgneb koodiplokk/konteiner
+        //B - konstruktor on sama nagu klassil, ning defineerib ära spetsiaaalse meetodi mis ütleb kuida s see struct instantsieeritakse. Konstruktorit kasutatakse
+        //      antud juhul siis structis olevatele väljadele mingite algaandmete sisestamiseks. Kosnstruktoreid saab olla mitu.
+        //      Kordinaat  structil on kaks konstructortit esimene kome ja teine kahe mõõtmeline
+        //C - Andmeväljad ütlebvad ära millised andmed uuel structil on. Olenevalt konstruktorist võib andmevälju olla rohkem või vähem 
+        //      või omada täielikult erinevaid andmevälju
+        //D - struktuuriomadused nende kaudu saab kasutatavas koodis selle struktuuri andmeid kätte. Addresseeritaks enagu meetoteid teistest
+        //      andmetüüpitest punkti abil ja peale punkti saab valida soovitud välja.
+        //      "Get" D.1 on vaikemeetod mis tagastab väljaandmed ning "Set" D.2 laseb seda seada
+        //E - struktuuri s asuvad metodid, saab kirjutada üle overridega vaikemeetodeid või saab omada struktuurile iseäralikke meetodeid
+        //
+
+
+        //A.1   A.2     A.3
+        public struct Kordinaat //A
+        {
+            public Kordinaat(double x, double y, double z)  //B kui andmeid ei anta kaasa siis vaikeväärtusena kasutatakse kõige esimest konstruktorit
+            {
+                X = x;  //C
+                Y = y;
+                Z = z;
+            }
+            public Kordinaat(double x, double y)  //B.1
+            {
+                X = x;  //C
+                Y = y;
+            }
+            //                D.1   D.2
+            public double X { get; set; }    //D
+            public double Y { get; set; }
+            public double Z { get; set; }
+
+            public override string ToString()   //E
+            {
+                return $"({X}, {Y}, {Z})";
+            }
+            public void HelloWorld()
+            {
+                Console.WriteLine("Tere maailm");
+            }
+        }
         static void Main(string[] args) //<-- "Main" on programmi sees olev meetod mis vaikeväärtusena alati käivitatakse, kui ei ole teist meetodit
                                         //käivituseks määratud
         {
@@ -461,7 +505,15 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //    }
             //    Console.WriteLine(displayableData);
             //}
+            Kordinaat minuAsukoht = new Kordinaat();    //Teeme muutuja "minuAsukoht" mille andmetüüp ongi meie enda struct,
+                                                        //kaitstud sõna new tekitab sinna uue tühja kordinaadi.
 
+            minuAsukoht.X = 67;    //Lisame uuele kordinaadile X kordinaadi
+            minuAsukoht.Y = 0;    //Lisame ka Y kordinaadi
+            minuAsukoht.Z = 9.5;    //ning ka Z kordinaadi
+
+            Kodinaat sateliidiPunkt = new Kordinaat(53.63, 88.49);
+            Console.WriteLine(sateliidiPunkt.ToString());
 
 
 
@@ -796,32 +848,7 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             // Struct/Struktuur on komposiitandmetüüp mis sarnaneb klassiga selle poolest, et erinevalt kõikodest teistest andmetüüpidest saab 
             // struktuur sisaldada meetodeid ja omadusi. Sarnaselt klassiga on structil ka konstruktor, mis ütleb mis selle struktuuri sees on.
 
-            //Struct anatoomia:
-            //A - structio jaoks tekitatud niometuumi tekitamine mis omnmakorda vajab juuredpääsu modifikaatotrit, andmetüübi nime ja
-            //  sätestust et tegu on structiga . Sätestusele järgneb koodiplokk/konteiner
-            //B - konstruktor on sama nagu klassil, ning defineerib ära spetsiaaalse meetodi mis ütleb kuida s see struct instantsieeritakse. Konstruktorit kasutatakse
-            //antud juhul siis structis olevatele väljadele mingite algaandmete sisestamiseks. Kosnstruktoreid saab olla mitu.
-
-        public struct Kordinaat //A
-        {
-            public Kordinaat(decuimal x, decimal y, decimal z)
-            {
-                decimal X = x;
-                decimal Y = y;
-                decimal Z = z;
-            }
-                public double X { get; }
-                public double Y { get; }
-                public double Z { get; }    
-
-                public override string ToString()
-                {
-                    return $" {X}, Y: {Y}, Z: {Z}";
-            }
-        }
-
-
-
+           
 
             ///* Muutuja nime näide: */
             ////string string = "abc"; //is bäd
