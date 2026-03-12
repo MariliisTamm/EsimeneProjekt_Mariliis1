@@ -8,6 +8,9 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
 {
     internal class Program //<-- programmi klass, mis on ka omakorda konteiner tüüp, Kus sees on kogu programmi kood 
     {
+        /* 5 - STRUKTUUR */
+        // Struct/Struktuur on komposiitandmetüüp mis sarnaneb klassiga selle poolest, et erinevalt kõikodest teistest andmetüüpidest saab 
+        // struktuur sisaldada meetodeid ja omadusi. Sarnaselt klassiga on structil ka konstruktor, mis ütleb mis selle struktuuri sees on.
 
         //Struct anatoomia:
         //A - structio jaoks tekitatud niometuumi tekitamine mis omnmakorda vajab juuredpääsu modifikaatotrit, andmetüübi nime ja
@@ -52,6 +55,20 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
                 Console.WriteLine("Tere maailm");
             }
         }
+
+        /* 6 Enum */
+        //Enum on spetsiialset tüüpi klass mis koosneb ainult read only muutmatutest muutujatest.Sarnaselt muude objektide addresseerimisega sab enumi seest
+        //muutujaid lugeda punkti abil. Enum kujutab endast tegelikult täisarvude loendit mille le on antud inimloetavad nimed
+
+        enum HäireTase  //sätestatud kaitstud sõnaga enum, seejärel enumi enda nimi ning sellele järgnevas koodiplokis enumi 
+                        //enda muutujad on eraldatud komadega.
+        {
+            Madal, Keskmine, Kõrge , Kriitiline
+        }
+
+
+
+
         static void Main(string[] args) //<-- "Main" on programmi sees olev meetod mis vaikeväärtusena alati käivitatakse, kui ei ole teist meetodit
                                         //käivituseks määratud
         {
@@ -713,6 +730,7 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             // 3. sõnastik
             // 4. tuple (hulk)
             // 5. struktuur
+            // 6. enum
 
             /* 1 - MASIIV */
             // [] - masiiv on komposiit andmetüüp mille sees saab olla mitmeid sama tüüpi lihtandmeid. Massiivi tähistatakse kantsulgudega.
@@ -848,7 +866,11 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             // Struct/Struktuur on komposiitandmetüüp mis sarnaneb klassiga selle poolest, et erinevalt kõikodest teistest andmetüüpidest saab 
             // struktuur sisaldada meetodeid ja omadusi. Sarnaselt klassiga on structil ka konstruktor, mis ütleb mis selle struktuuri sees on.
 
-           
+            /* 6 Enum */
+            //Enum on spetsiialset tüüpi klass mis koosneb ainult read only muutmatutest muutujatest.Sarnaselt muude objektide addresseerimisega sab enumi seest
+            //muutujaid lugeda punkti abil. Enum kujutab endast tegelikult täisarvude loendit mille le on antud inimloetavad nimed
+
+
 
             ///* Muutuja nime näide: */
             ////string string = "abc"; //is bäd
