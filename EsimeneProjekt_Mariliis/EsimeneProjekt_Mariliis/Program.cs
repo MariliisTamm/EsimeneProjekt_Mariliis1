@@ -1,5 +1,6 @@
 ﻿using System;
-using System.ComponentModel.Design; //<-- enne nimeruumi, viidatakse selles failis/klassis kasutatud pakettidele/moodulitele ja süsteemi muudele osadele
+using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates; //<-- enne nimeruumi, viidatakse selles failis/klassis kasutatud pakettidele/moodulitele ja süsteemi muudele osadele
 //süsteemi muuks osaks võib olla kas operatsioonisüsteemi võimalused või ka teised projektid. Teised projektid viidatakse tavaliselt solution (.sln)
 //failist.
 
@@ -508,7 +509,8 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //decimal kümnendsüsteemiskomakohagaarv = 1.5M;
             //var x = 123; //Umbmäärase andmetüübiga ajutine muutuja
             //var y = "ABC";
-            //bool jahvõiei = false; //kas true või false.
+            //bool jahvõiei = false; //kas true või false
+            //void - on andmetrüüp mida muutuja tekitamisel kasutada ei saa, kasutatakse ainult meetodite signatuurides väljendamiseks et meetod ei tagasta midagi
 
 
             /* S Õ N E T Ö Ö R I I S T A D */
@@ -538,7 +540,7 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //                                                                   //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
             //                                                                   //antud juhul "Replace", ning sulgude vahele kirjutada sõna mida otsime ja sõna millega asendada
 
-            
+
             //string[] lauseOsad = minuLause.Split(' ');  //sõne tööriist mis jagab sõne osadeks, ning tagastab need osad massiivina. Antud juhul jagatakse sõne osadeks tühiku kohalt, ning iga sõna on eraldi massiivi element
             //                                            //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
             //                                            //antud juhul "Split", ning sulgude vahele 
@@ -546,8 +548,8 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //{
             //    Console.WriteLine(osa);                 //kuvame käsureale sõna muutujas oleva sõna
             //}
-            
-            
+
+
             //bool isBig = false;
             //for (int i = 0; i < lauseOsad.Length; i++) //tsükkel mis käib läbi lauseOsad massiivi iga elemendi, ning omistab selle sõna muutujale
             //{
@@ -562,7 +564,7 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //    isBig = !isBig;
             //}
 
-            
+
             ///* konkatenatsioonoi võimalused */
             //string töödeldudLause = string.Join(" ", lauseOsad);    //sõne tööriist mis liidab sõne osad kokku üheks sõneks, ning eraldab need osad tühikuga.
             //                                                        //Antud juhul liidetakse lauseOsad massiivi sõnad kokku üheks sõneks, ning iga sõna vahele pannakse tühik
@@ -579,8 +581,8 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //                                                //sõne tööriist mis teisendab sõne osad listiks, ning tagastab selle listina. Antud juhul teisendatakse lauseOsad massiiv listiks, kus iga sõna on eraldi listi element
             //                                                //Sõne tööriista kasutamiseks tuleb sõne muutuja nimele panna punkt ja siis kirjutada tööriista nimi,
             //                                                //antud juhul "ToList", ning sulgude vahele
-            
-            
+
+
             //string eesnimi = "Julius";                      //tekitame string tüüpi muutuja, mille väärtuseks on sõnum "Julius"
             //string perekonnanimi = "Caesar";
             //string amet = "noahoidik";
@@ -658,6 +660,7 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             // 2 . loend
             // 3. sõnastik
             // 4. tuple (hulk)
+            // 5. struktuur
 
             /* 1 - MASIIV */
             // [] - masiiv on komposiit andmetüüp mille sees saab olla mitmeid sama tüüpi lihtandmeid. Massiivi tähistatakse kantsulgudega.
@@ -681,8 +684,8 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //                                    //väärtus muutujassse kuiPaljuOn. Väärtus saab olla ainult täis arv sest poolikuid või osalisi elemete
             //                                    //ei ole olemas
             //bool kasOn = Array.IndexOf(uusMassiiv, 2);    //masiivimeetod IndexOf mille saame kasutusele võtta Array paketi alt.
-                                                            //Otsib massiivist kindlat elementi, ning tagastab selle element asukoha indeksinumbri massiivis.
-                                                            //Antud juhul otsitakse massiivist uusMassiiv elementi 2, ning tagastatakse selle element asukoha indeksinumber massiivis
+            //Otsib massiivist kindlat elementi, ning tagastab selle element asukoha indeksinumbri massiivis.
+            //Antud juhul otsitakse massiivist uusMassiiv elementi 2, ning tagastatakse selle element asukoha indeksinumber massiivis
 
 
             /* 2 - LOEND */
@@ -729,7 +732,7 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
 
             // Teine tekitusviis:
 
-            Dictionary<int, string> sõnastik2 = new Dictionary<sint., string>() { {1, "astelpaju" }, {2, "muulukas" }, { 3, "maasikas"} };
+            Dictionary<int, string> sõnastik2 = new Dictionary<sint., string>() { { 1, "astelpaju" }, { 2, "muulukas" }, { 3, "maasikas" } };
             //Andmetüübi kirjeldus Dictionary näitab, et tegu on sõnastikuga, ehk loendiga võtioväärtus paaridest. Dictionary noolsulgude vahel,
             //on sõnastikus olevate võtmete ja väärtuste andmetüüp, antud juhul on siin võtmed sõned ehk "int" ja väärtused täisarvud ehk "string".
             //Muutuja enda nimeks, kus andmeid hoitakse on "sõnastik". Sellesse muutujasse omistatakse kaitstud sõna "new" abil uus sõnastik mille väärtused
@@ -770,7 +773,7 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //rekonstrueerida olemasolevatest ja uutest uus tuple.
 
             //Esimene tekitusviis:
-            Tuple<bool, int, string> someTuple = new Tuple<bool, int, string>(true, 1,"abc");
+            Tuple<bool, int, string> someTuple = new Tuple<bool, int, string>(true, 1, "abc");
             //Andmetüübi kirjeldus Tuple näitab, et tegu on tuplaga, Tuple'i noolsulgude vahel, on tuplas olevate elementide andmetüüp, antud juhul on siin
             //bool, int ja string. Muutuja enda nimeks, kus andmeid hoitakse on "someTuple". Sellesse muutujasse omistatakse kaitstud sõna "new" abil uus tupla,
             //mille elementide andmetüübid on vastavalt bool, int ja string. Tupla elementideks on omistatud sulgude vahel olevad väärtused
@@ -788,6 +791,34 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //erinevalt loendist ja massiivist ei ole esimene number 0 vaid 1, seega esimene element on Item1, teine element on Item2 jne.
             string pool1 = piparmündiTupla.Item1; //antud juhul on pool1 väärtuseks "vasak tupla"
             string pool2 = piparmündiTupla.Item2; //antud juhul on pool2 väärtuseks "njäm njäm njäm"
+
+            /* 5 - STRUKTUUR */
+            // Struct/Struktuur on komposiitandmetüüp mis sarnaneb klassiga selle poolest, et erinevalt kõikodest teistest andmetüüpidest saab 
+            // struktuur sisaldada meetodeid ja omadusi. Sarnaselt klassiga on structil ka konstruktor, mis ütleb mis selle struktuuri sees on.
+
+            //Struct anatoomia:
+            //A - structio jaoks tekitatud niometuumi tekitamine mis omnmakorda vajab juuredpääsu modifikaatotrit, andmetüübi nime ja
+            //  sätestust et tegu on structiga . Sätestusele järgneb koodiplokk/konteiner
+            //B - konstruktor on sama nagu klassil, ning defineerib ära spetsiaaalse meetodi mis ütleb kuida s see struct instantsieeritakse. Konstruktorit kasutatakse
+            //antud juhul siis structis olevatele väljadele mingite algaandmete sisestamiseks. Kosnstruktoreid saab olla mitu.
+
+        public struct Kordinaat //A
+        {
+            public Kordinaat(decuimal x, decimal y, decimal z)
+            {
+                decimal X = x;
+                decimal Y = y;
+                decimal Z = z;
+            }
+                public double X { get; }
+                public double Y { get; }
+                public double Z { get; }    
+
+                public override string ToString()
+                {
+                    return $" {X}, Y: {Y}, Z: {Z}";
+            }
+        }
 
 
 
@@ -925,7 +956,7 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
 
 
             /*   -= T I N G I M U S L A U S E - SWITCHCASE =-       */
-            
+
             int option = 3; // -------
             switch (option) // "switch" on kaitstud sõna alternatiivse tingimuskontrolli jaoks mida saab if-elseif-else asemel kasutada. Sulgude vahele
                             // käib muutuja nimi, mille põhjal tingiomuslik ümberlülitus toimub. Siin sulgude vahel ei ole tingimus ise, vaid kõigest
@@ -1091,6 +1122,106 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             }
             //NB - Tsükli töö ei pea olema üldse seotud kontrollitava kollektsiooniga. Kollektsioon ise võib olla ainult tsüklimuutuja eesmärgil sätestatud.
 
+        }
+
+        /* M E E T O D I D */
+        //Meetodid on väljakutsutavad koodijupid või alamprogrammid. Meetodid teostavad tavaliselt mingeid spetsiifilisi funktsioone või tegevusi,
+        //ning neid saab kutsuda koodis mitmeid kordi, et vältida korduvat koodi ja hoida programm organiseerituna.
+        //Meetodid võivad võtta vastu parameetreid, mis on sisendandmed meetodi töö jaoks, ning võivad tagastada väärtuse,
+        //mis on meetodi töö tulemus. write once use many
+        //meetodeid on kahet liiki - ühed mis tagastavad mingisuguse töö või tegevuse tagajärjel või muu tulemuse saavutamisel andmeid
+        //ja teised smis ei tagasta midagi kuid omavad siiski mingit tegevust
+
+        //Meetodi anatoomia:
+        //Meetodi keha sisaldab endas kolme vajalikku komponenti. Meetodi enda omadused ja nimi, parameetrid ning meetodikood ise.
+        //Meetodi omadused ja nimi ning parameetrid moodustavad meetodi signatuuri ning sellele järgneb loogelistes sulgudes koodilplokk {}
+        //Koodiplokk mida kasutav meetod väljakutsel täidab.
+
+        //Meetodi signatuur on kõige esimene rida mis meetodi tekitamiseks kirjutatakse, ning mis kirjeldab meetodit ennast ja selle omadusi.
+        //Signatuur aga koosneb ise ka mitmest või kõigist järgnevatest komponentidest: juurdepääsumodifikaator, tagastustüüp, meetodi enda nimi
+        //olenevalt liigist ka parammeetrid sulgude vahel(), ning peale signatuuri koodiplokk
+
+        //Juurdepääsumodifikaator ütleb ära kust ja kuidas seda meeetodit välja kutsuda või adresseerida saab. Tähtsaimad neist on 4-5 tk:
+        //a
+        //0. ------------       modifikaatori puudumisel kompilaator annab meetodile sobiva juurdepääsumodifikaatori, mis on private,
+        //see tähendab, et meetod on nähtav ja kasutatav ainult selle klassi sees, kus ta on deklareeritud.
+        //1. public     -       meetod on nähtav ja kasutatav kõikjal, nii klassi sees kui väljaspool, ning ka teistes projektides
+        //2. private    -       meetod on nähtav ja kasutatav ainult selle klassi sees, kus ta on deklareeritud
+        //3. protected  -       meetod on nähtav ja kasutatav ainult selle klassi sees, kus ta on deklareeritud, ning ka kõigis sellest
+        //                      klassist pärinevates alamklassides
+        //4. internal   -       meetod on nähtav ja kasutatav ainult selle projekti sees, kus ta on deklareeritud
+        //5. protected internal - meetod on nähtav ja kasutatav ainult selle projekti sees, kus ta on deklareeritud,
+        //                      ning ka kõigis sellest projektist pärinevates alamklasside
+        //6. static     -       meetod on staatiline, mis tähendab, et seda saab kutsuda ilma, et peaks esmalt looma selle meetodi klassi põhjal objekti.
+        //                      Staatiline meetod
+        //7. void   b    -       meetod ei tagasta midagi, vaid omab mingit tegevust, mis on meetodi koodiplokis {} kirjeldatud.
+        //                      Void meetodid ei saa tagastada. Andmetüüp võib olla üksõik milline kombinatsioon või liht andmetüüp.
+        //                      Kui aga meetod ei tagasta üldse andmeid. kui meetodil on tagastustüübiks midagi mis muud kui void, siis peab ta tagastama midagi,
+        //                      ning selle tagastatav väärtus peab olema sama tüüpi mis meetodi tagastustüüp. Pea returni on alati tagastavaad andmed või
+        //                      muutuja sisaldab tagaastatavaid andmeid. olenevalt meetodist saab tagastuseks ola ka tegevus, Need andmed antakse sinna kuskohast
+        //                      meetod välja kutsutakse, ning neid saab kasutada seal kus meetod välja kutsutakse. Return katkestab meetodi töö.
+        //         c     -       meetodi enda nimi on midagi mile järgi arendaja meetodit kasutab. Nimi omab sama funktsiooni nagu näiteks muutuja nimi.
+        //                      Meetodi nime kirjutamise või välja mõtlemisel võik snmeetodi nime kirjutada tegevuse järgi mitte kus ta käib või mõni muu arusaamatu asi.
+        //          d    -       parameetrid on väljad mis ütlevad mida meetodi tööks vaja on mning mis on vaja sulgude vahele
+        //                      lisada meetodi väljakutsumise asukohas. Parameetri muutuja nimi võib olla väljendatud teistmoodi kui
+        //                      selle meetodi kasutatacvad andmed.Parameetreid on kahte sorti kohustuslikud ja optional ehk valikuline.
+        //                      Valikulise parameetri juurde küsimärk. On olmas ka vaikeväärtusega parameetrid kus muutujale väärtuse puudumisel antakase signatuuris
+        //                      mingisugune väärtus ette ära
+
+        // 1. tüüp meetod - ei tagasta andmeid:
+        public static void UusMeetod()  //meetodi signatuur : omab juurdepääsumodifikaatorit "public", tagastustüüpi "void" ning nime "UusMeetod".
+        {                                 //Meetod ei oma parameetreid.Pärast omadusi on sulud ja parameetreid ei ole määratud
+            Console.WriteLine("Tere!"); //meetodi koodiplokk, mis täidab mingit tegevust, antud juhul kuvab sõnumi käsureale.
+        }
+        //
+        //2. tüüp meetod - tagastab mingisuguse väärtuse või mingeid andmeid:
+        int[] arvutatavadArvud = new int[] { 67, 69, 420, 9001 };
+        public static int ArvutaKokku(int[] arvud)  //meetodi signatuur omab juurdepääsumodifikaatorit "public", tagastustüüpi "int" ning nime "ArvutaKokku".
+                                                    //Meetodil on üks parameeter, mille andmetüüp on int[] ehk int tüüpi massiiv, ning parameetri muutuja nimeks on "arvud".
+        {                                           //Meetodi koodiplokk, mis täidab mingit tegevust, antud juhul arvutab kokku massiivi elementide summa, ning tagastab selle.
+            int summa = 0;
+            foreach (var arv in arvud)              //Foreach tsükkel, mis käib läbi massiivi "arvud" kõikide elementide, ning iga elemendi jaoks teeb mingi tegevuse.
+            {
+                summa += arv;                       //Tegevus koodiploki sees, mis liidab iga massiivi elemendi väärtuse muutuja "summa" sisse, ning kogub kokku elementide summa.
+            }
+            return summa;                           //Muutuja "summa" kuhu kogutakse kokku arvude summa, ning mis on algselt 0
+        }
+        //Meetodiväljakutse:
+        //Hetkel käivitatud koodis kutsutakse meetodit välja vaid tema nimepidi + vajalikud parameetridd
+
+        // /mingi muu kood/
+        //
+        //ArvutaKokku(arvutatavadArvud)
+        //
+        // /mingi muud kood/
+        //
+        //erinevalt kõigest muust ei ole meetodi näidis konspektis funktsioneeriv.
+
+        /* valikuline ja kohustuslik parameeter */
+        public void MillineTekst(int vanus, int? pikkus = 170)
+        {
+            if(vanus < 18)
+            {
+                Console.WriteLine("kõtt, alakaid ei taha");
+            }
+            else if(vanus >= 18)
+            {
+                if (pikkus != null)
+                {
+                    if (pikkus < 170)
+                    {
+                        Console.WriteLine("Saad juua 2 liitrit monsterit");
+                    }
+                    else if (pikkus <= 200)
+                    {
+                        Console.WriteLine("saad juua kuni 4 liitrit monsterit");
+                    }
+                }
+                else
+                {
+                        Console.WriteLine("Saad jua 2 liitrit monsterit")
+                }  
+            }
         }
     }
 }
