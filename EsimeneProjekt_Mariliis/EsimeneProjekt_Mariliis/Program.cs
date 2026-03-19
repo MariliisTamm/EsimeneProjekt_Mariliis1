@@ -400,7 +400,7 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
 
             /* näiteülesanne 10 - graafik*/
             // andmed mida graafikuna kujutada tahetakse
-            List<float> graphData = new List<float>()
+            /*List<float> graphData = new List<float>()
             {
                 -3.6f, //negatiivne
                 0,     //0
@@ -458,10 +458,7 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
                     i++;
                 }
                 Console.WriteLine(displayableData);
-            }
-
-
-
+            }*/
 
 
 
