@@ -432,6 +432,44 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //    Console.WriteLine((i+1)+". päeval on temperatuur " + temps[i]+" kraadi ja ilm on " + kirjeldused[i]+".");
             //} 
 
+            /*
+int arv
+do
+{
+    Console.WriteLine("Sisesta oma arv: ");
+    arv = int.Parse(Console.ReadLine());
+}
+while (arv > 0);
+Console.WriteLine("Arv ei ole suurem kui 0");
+*/
+            /*
+            int aasta = 0;
+            Console.WriteLine("Sisesta aastaarv(1000 - 2025): ");
+            aasta = int.Parse(Console.ReadLine());
+            while (aasta > 1000 || aasta < 2025)
+            {
+                Console.WriteLine("Vale aasta. Sisesta aasta (1000 - 2025): ");
+                aasta = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine("Sisestasid sobiva aastaarvu:" + aasta );
+            */
+            /*
+            string[] ideed = {"Raamat", "Komm", "Sokid", "Mäng", "Shokolaad"};
+            for (int i = 0; i < ideed.Length; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + ideed[i]);
+            }
+            */
+            /*
+            int[] arvud = {2,3,4,5,6};
+            int korrutis = 1;
+            foreach (int arv in arvud)
+            {
+                korrutis *= arv;    
+            }
+            Console.WriteLine("Arvude korrutis on: " + korrutis);
+            */
+
             ///* näiteülesanne 10 - graafik*/
             //// andmed mida graafikuna kujutada tahetakse
             //List<float> graphData = new List<float>()
@@ -515,6 +553,9 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             Kordinaat satelliidiPunktMaakohal = new Kordinaat(53.67, 88.94);
             Console.WriteLine(satelliidiPunktMaakohal.ToString());
 
+
+
+
             /*
                 üleval harjutused
 
@@ -522,6 +563,11 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
 
                 all teooria
             */
+
+
+
+
+
             ///*   -= S Ü N T A K S =-                             */
             Console.WriteLine("'Ommik"); //<- "1"
             string vastus = Console.ReadLine(); //<- "2"
