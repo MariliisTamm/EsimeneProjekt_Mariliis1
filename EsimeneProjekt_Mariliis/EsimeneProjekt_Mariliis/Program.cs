@@ -461,6 +461,48 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //    Console.WriteLine((i + 1) + ". päeval on temperatuur " + temps[i] + " kraadi ja ilm on " + kirjeldused[i] + ".");
             //}
 
+
+
+            /*
+            int arv
+            do
+            {
+                Console.WriteLine("Sisesta oma arv: ");
+                arv = int.Parse(Console.ReadLine());
+            }
+            while (arv > 0);
+            Console.WriteLine("Arv ei ole suurem kui 0");
+            */
+            /*
+            int aasta = 0;
+            Console.WriteLine("Sisesta aastaarv(1000 - 2025): ");
+            aasta = int.Parse(Console.ReadLine());
+            while (aasta > 1000 || aasta < 2025)
+            {
+                Console.WriteLine("Vale aasta. Sisesta aasta (1000 - 2025): ");
+                aasta = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine("Sisestasid sobiva aastaarvu:" + aasta );
+            */
+            /*
+            string[] ideed = {"Raamat", "Komm", "Sokid", "Mäng", "Shokolaad"};
+            for (int i = 0; i < ideed.Length; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + ideed[i]);
+            }
+            */
+            /*
+            int[] arvud = {2,3,4,5,6};
+            int korrutis = 1;
+            foreach (int arv in arvud)
+            {
+                korrutis *= arv;    
+            }
+            Console.WriteLine("Arvude korrutis on: " + korrutis);
+            */
+
+
+
             /* näiteülesanne 10 - graafik*/
             // andmed mida graafikuna kujutada tahetakse
             //List<float> graphData = new List<float>()
@@ -522,6 +564,17 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //    }
             //    Console.WriteLine(displayableData);
             //}
+            Car minuParsa = new Car(
+               "Yaris", CarMark.Toyota,
+               "ABC 123",
+               "vene kollane",
+               (decimal)1.67,
+               new List<string> { "uksed", "aknad" }
+               );
+            Console.WriteLine(minuParsa.GetInfo());
+            minuParsa.SeeEquiptment();
+
+
             Kordinaat minuAsukoht = new Kordinaat();    //Teeme muutuja "minuAsukoht" mille andmetüüp ongi meie enda struct,
                                                         //kaitstud sõna new tekitab sinna uue tühja kordinaadi.
 
@@ -536,6 +589,9 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
 
 
 
+
+
+
             /*
                 üleval harjutused
 
@@ -543,6 +599,11 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
 
                 all teooria
                 */
+
+
+
+
+
 
             ///*   -=   S Ü N T A K S   =-      */
             //
@@ -1271,6 +1332,38 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
                         Console.WriteLine("Saad jua 2 liitrit monsterit")
                 }  
             }
+        }
+
+        /* parameetrite vaikeväärtus */
+        public string KeskmineTase(float veetase = 1.5f)    //Meetodi signatuuris on asetatud sulgude vahele üks parameeter "veetase" mille taga on võrdusmärk
+                                                            //väärtusega. Meetodi signatuuris ütleb võrdusmärk, et tegu on väikeväärtusega, ning kui meetodile
+                                                            //ei anta kaasa sissetulevat väärtust, arvestatakse et väärtuseks on sulgude taga olev anne.
+                                                            //Antud juhul 1.5f
+        {
+            if (veetase > 1.5)
+            {
+                return "liiga kõrge";
+            }
+            else
+            {
+                return "normaalne";
+            }
+        }
+    }
+}
+namespace loops
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            
+
+            
+
+
+            
         }
     }
 }

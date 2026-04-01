@@ -4,53 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EsimeneProjekt	//Nimeruum millises projektis antud kalss on
+namespace EsimeneProjekt // Nimeruum millises projektis (skoobis) antud klass on
 {
-    //Klassi anatoomia:
-    //A - klassi enda nimeruum mis sisaldab kõik mis klassil tema töö jaoks vaja on
-    //      klassi nimeruum vajab
-    //      A.1 - juurdepääsu modifikaatorit
-    //      A.2 - sätestust et tegu on klassiga
-    //      A.3 - klassi nimi
-    //B - Klassi konstruktor defineerib ära spetsiaalse meetodi mis ütleb kuidas selle klassi tüüpi
-    //      objekti instantseeritakse. Samamoodi nagu structil saab olla konstructoreid mitu, erinevalt
-    //      Struvctist väärtused peab kaasa andma.
-    //C - väljad mioda konstruktor ootab neile tuleb väärtus andad välaja arvatud ühel juhul
-    //D - klssi omadused. Nende kaudu saab kasutatavas koodis selle klassi tüüpi objekti andmeid kätte,
-    //      sdresseerides punktiga, Erinevalt structist vajavad omadused objekti tekitamisel mingit väärtust. Välja arvatud
-    //      siis kui omaduse andmetüübi taga on küsimärk mis ütleb, et see omadus võib jääda nulliks D.1
-    //Klassiomadusele saab anda bvaikeväärtuse . Vaikeväärtus on midagi mis antakse kaasa selle klassi tüüpiu uuele objektile kaasa,
-    //selle objekti tekitamise hetkel, kui ei ole sellele väljake väärtust antud
-
+    // Klassi anatoomia:
+    // A - Klassi enda nimeruum, mis sisaldab kõik mis klassil tema töö jaoks vaja on
+    //      Klassi nimeruum vajab
+    //      (A.1) - juurdepääsu modifikaatorit,
+    //      (A.2) - sätestust et tegu on klassiga
+    //      (A.3) - klassi enda nime.
+    // B - Klassi konstruktor defineerib ära spetsiaalse meetodi mis ütleb kuidas
+    //      selle klassi tüüpi objekt instantsieeritakse. Samamoodi nagu structil,
+    //      saab olla konstruktoreid mitu, erinevalt Structist, väärtused peab andma kaasa.
+    // C - Väljad mida konstruktor ootab, neile tuleb väärtus anda välja arvatud ühel juhul
+    // D - Klassi omadused. Nende kaudu saab kasutatavas koodis selle klassi tüüpi objekti
+    //      andmeid kätte, adresseerides neid punktiga. Erinevalt Structist, vajavad omadused
+    //      objekti tekitamisel mingit väärtust. Välja arvatud siis, kui omaduse
+    //      andmetüübi taga on küsimärk (?) mis ütleb, et see omadus võib jääda "null"iks.
+    //      (D.1)
+    //      Klassi omadusele saab anda vaikeväärtuse. Vaikeväärtus on midagi mis antakse
+    //      selle klassi tüüpi uuele objektile kaasa, selle objekti tekitamise hetkel, kui
+    //      ei ole sellele väljale väärtust antud.(D.2)
     //A.1   A.2   A.3
-    public class KlassiPeatükk  //A
+    public class KlassiPeatükk //A 
     {
         public KlassiPeatükk(string värvus, string materjal, double paksus) //B
         {
-            Värvus = värvus;        //C
-            Materjale = materjal;
+            Värvus = värvus; //C
+            Materjal = materjal;
             Paksus = paksus;
         }
-        public string Värvus? /*D.1*/ {  get; set; }     //D
+        //D
+        public string?/*D.1*/ Värvus { get; set; }
         public string Materjal { get; set; }
-        public double Paksus { get; set; }
-
+        public double Paksus { get; set; } = -1;//D.2
+        //E klassi meetodid
         /// <summary>
-        /// Returns a formatted string containing information about the material, thickness, and color of the object.
+        /// Returns a sentence, containing info about this object
         /// </summary>
-        /// <returns>A string that describes the object's material, thickness, and color.</returns>
-        
-        //E
+        /// <returns>sentence</returns>
         public string GetInfo()
         {
             return $"This object is made of {Materjal}, is {Paksus} thick and has color {Värvus}.";
         }
         /// <summary>
-        /// Determines whether the specified thickness allows the item to be dremeled.
+        /// Method that return true, if this material can be dremeled or not<br/>
+        /// If the dremel is longer than the material is thick, then it is not dremelable, and vice-versa.
         /// </summary>
-        /// <param name="freesipaksus">The thickness to evaluate, in the same units as the item's thickness. Must be a non-negative value.</param>
-        /// <returns>true if the specified thickness is less than the item's thickness; otherwise, false.</returns>
-        public bool CanThisBeDremled(double freesipaksus)
+        /// <param name="freesipaksus">Input your dremel length</param>
+        /// <returns>true or false</returns>
+        public bool CanThisBeDremeled(double freesipaksus)
         {
             if (freesipaksus < Paksus)
             {
@@ -61,5 +63,5 @@ namespace EsimeneProjekt	//Nimeruum millises projektis antud kalss on
                 return false;
             }
         }
-	}
+    }
 }
