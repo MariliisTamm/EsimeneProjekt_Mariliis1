@@ -472,8 +472,8 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             }
             while (arv > 0);
             Console.WriteLine("Arv ei ole suurem kui 0");
-            */
-            /*
+           
+
             int aasta = 0;
             Console.WriteLine("Sisesta aastaarv(1000 - 2025): ");
             aasta = int.Parse(Console.ReadLine());
@@ -483,15 +483,15 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
                 aasta = int.Parse(Console.ReadLine());
             }
             Console.WriteLine("Sisestasid sobiva aastaarvu:" + aasta );
-            */
-            /*
+          
+
             string[] ideed = {"Raamat", "Komm", "Sokid", "Mäng", "Shokolaad"};
             for (int i = 0; i < ideed.Length; i++)
             {
                 Console.WriteLine((i + 1) + ". " + ideed[i]);
             }
-            */
-            /*
+           
+
             int[] arvud = {2,3,4,5,6};
             int korrutis = 1;
             foreach (int arv in arvud)
