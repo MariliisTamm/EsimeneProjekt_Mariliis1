@@ -251,289 +251,372 @@ namespace EsimeneProjekt //<-- nimeruum, sisaldab {} sulgude vahel konteinerit k
             //float backToFloat = backToLong;
             //double backToDouble = backToFloat;
 
-            /*näiteülesanne 7 - "Kalkulaator" */
+            /* namespace Meetodid
+            {
+            internal class Program
+            {
+                static void Main(string[] args)
+                {
+                    Tervitus();
 
-            //Console.WriteLine("Palun sisesta esimene arv");
-            //float arv1 = 0.0f;
-            //arv1 = float.Parse(Console.ReadLine());
+                    double[] arvuMassiiv = [500000.1, 100.567, 12.345, 6.66, 0.00033];
+                    double tulemus = arvuMassiiv[0];
+                    Console.WriteLine($"Su esimene arv on {tulemus}");
+                    for (int i = 1; i < arvuMassiiv.Length; i++)
+                    {
+                        tulemus = Jagamistehe(arvuMassiiv[i], tulemus);
+                    }
+                    Console.WriteLine($"Lõpptulemus on {tulemus}");
+                    Console.WriteLine("Kasutasime ära kõik arvud, Let's go edasi.");
 
-            //Console.WriteLine("Palun sisesta teine arv");
-            //float arv2 = 0.0f;
-            //arv2 = float.Parse(Console.ReadLine());
+                    Console.WriteLine("Kirjuta palun enda perekonnanimi:");
+                    string perekonnaNimi = Console.ReadLine();
+                    int aTähed = TähteLugemine(perekonnaNimi);
+                    Console.WriteLine($"Su perekonnanimi sisaldab \"a\" tähte {aTähed} korda!");
 
-            //Console.WriteLine("Mis tüüpi tehet sa teha tahad? (valik: + - * / ^ V)");
-            //string tehteTüüp = "";
-            //tehteTüüp = Console.ReadLine();
+                    Console.WriteLine("Mitu km oled täna jalgsi käinud? Kirjuta täisarvuga");
+                    int kõndimisKaugus = int.Parse(Console.ReadLine());
+                    string minuKommentaar = KauguseAnalüüs(kõndimisKaugus);
+                    Console.WriteLine(minuKommentaar);
+                }
+                private static string KauguseAnalüüs(int kõndimisKaugus)
+                {
+                    string kommentaar = "";
+                    if (kõndimisKaugus < 0)
+                    {
+                        kommentaar = "Vigane sisend";
+                    }
+                    else if (kõndimisKaugus == 0)
+                    {
+                        kommentaar = "Paigalseisuga tervist ei hoia";
+                    }
+                    else if (kõndimisKaugus > 0 && kõndimisKaugus < 5)
+                    {
+                        kommentaar = "Tubli tulemus, kontorirotid tavaliselt nii palju ei liigu";
+                    }
+                    else if (kõndimisKaugus >= 5 && kõndimisKaugus < 10)
+                    {
+                        kommentaar = "pool linna kõnnib sellega maha";
+                    }
+                    else if (kõndimisKaugus >= 10 && kõndimisKaugus < 15)
+                    {
+                        kommentaar = "Wow, see võtab üksjagu aega";
+                    }
+                    else
+                    {
+                        kommentaar = "ära kiirusta!!! >_<";
+                    }
+                    return kommentaar;
+                }
+                private static int TähteLugemine(string perekonnaNimi)
+                {
+                    int arv = 0;
+                    foreach (var täht in perekonnaNimi)
+                    {
+                        string jargmineTäht = täht.ToString();
+                        if (jargmineTäht.ToLower() == "a")
+                        {
+                            arv++;
+                        }
+                    }
+                    return arv;
+                }
+                private static double Jagamistehe(double arv, double tulemus)
+                {
+                    Console.WriteLine($"Me jagame seda {arv}'ga");
+                    Console.WriteLine($"Sinu tehe on: {tulemus}/{arv}={tulemus / arv}");
+                    tulemus = tulemus / arv;
+                    return tulemus;
+                }
+                private static void Tervitus()
+                {
+                    Console.WriteLine("Tere hommikust!");
+                }
+            }*/
 
-            //double tehteTulemus = 0.0d;
+    /*näiteülesanne 7 - "Kalkulaator" */
 
-            //if (tehteTüüp != "")
-            //{
-            //    switch (tehteTüüp)
-            //    {
-            //        default:
-            //            Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
-            //            break;
-            //        case "+":
-            //            tehteTulemus = arv1 + arv2;
-            //            break;
-            //        case "-":
-            //            tehteTulemus = arv1 - arv2;
-            //            break;
-            //        case "/":
-            //            tehteTulemus = arv1 / arv2;
-            //            break;
-            //        case "*":
-            //            tehteTulemus = arv1 * arv2;
-            //            break;
-            //        case "^":
-            //            tehteTulemus = Math.Pow(arv1, arv2);
-            //            break;
-            //        case "V":
-            //            tehteTulemus = Math.Pow(arv1, (1 / arv2));
-            //            break;
-            //    }
-            //    Console.WriteLine($"Tehte tulemus on: {arv1} {tehteTüüp} {arv2} = {tehteTulemus}");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
-            //}
+    //Console.WriteLine("Palun sisesta esimene arv");
+    //float arv1 = 0.0f;
+    //arv1 = float.Parse(Console.ReadLine());
 
-            ///* näiteülesanne 7.1 - asenda switchcase if-elseif-elseiga*/
-            //Console.WriteLine("Palun sisesta esimene arv");
-            //float arv1 = 0.0f;
-            //arv1 = float.Parse(Console.ReadLine());
+    //Console.WriteLine("Palun sisesta teine arv");
+    //float arv2 = 0.0f;
+    //arv2 = float.Parse(Console.ReadLine());
 
-            //Console.WriteLine("Palun sisesta teine arv");
-            //float arv2 = 0.0f;
-            //arv2 = float.Parse(Console.ReadLine());
+    //Console.WriteLine("Mis tüüpi tehet sa teha tahad? (valik: + - * / ^ V)");
+    //string tehteTüüp = "";
+    //tehteTüüp = Console.ReadLine();
 
-            //Console.WriteLine("Mis tüüpi tehet sa teha tahad? (valik: + - * / ^ V)");
-            //string tehteTüüp = "";
-            //tehteTüüp = Console.ReadLine();
+    //double tehteTulemus = 0.0d;
 
-            //double tehteTulemus = 0.0d;
+    //if (tehteTüüp != "")
+    //{
+    //    switch (tehteTüüp)
+    //    {
+    //        default:
+    //            Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
+    //            break;
+    //        case "+":
+    //            tehteTulemus = arv1 + arv2;
+    //            break;
+    //        case "-":
+    //            tehteTulemus = arv1 - arv2;
+    //            break;
+    //        case "/":
+    //            tehteTulemus = arv1 / arv2;
+    //            break;
+    //        case "*":
+    //            tehteTulemus = arv1 * arv2;
+    //            break;
+    //        case "^":
+    //            tehteTulemus = Math.Pow(arv1, arv2);
+    //            break;
+    //        case "V":
+    //            tehteTulemus = Math.Pow(arv1, (1 / arv2));
+    //            break;
+    //    }
+    //    Console.WriteLine($"Tehte tulemus on: {arv1} {tehteTüüp} {arv2} = {tehteTulemus}");
+    //}
+    //else
+    //{
+    //    Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
+    //}
 
-            //if (tehteTüüp != "")
-            //{
-            //    switch (tehteTüüp)
-            //    {
-            //        default:
-            //            Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
-            //            return;
-            //        case "+":
-            //            tehteTulemus = arv1 + arv2;
-            //            break;
-            //        case "-":
-            //            tehteTulemus = arv1 - arv2;
-            //            break;
-            //        case "/":
-            //            tehteTulemus = arv1 / arv2;
-            //            break;
-            //        case "*":
-            //            tehteTulemus = arv1 * arv2;
-            //            break;
-            //        case "^":
-            //            tehteTulemus = Math.Pow(arv1, arv2);
-            //            break;
-            //        case "V":
-            //            tehteTulemus = Math.Pow(arv1, (1 / arv2));
-            //            break;
-            //    }
-            //    Console.WriteLine($"Tehte tulemus on: {arv1} {tehteTüüp} {arv2} = {tehteTulemus}");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
-            //}
-            /* näiteülesanne 8 */
-            //kirjuta programm mis
-            //küsib kasutajatelt pikkust *sentimeetrites* 
-            //küsib tema teiste perekonnaliikmete pikkust (ema isa vend)
-            // programm arvutab välja perekonna keskmise pikkuse, vanemate keskmise pikkuse, laste keskmise pikkuse ja kahe keskmise vahe,
-            // kõik arvud peab programm esitama komakohtadega arvudena
-            //int kasutajapikkus = 0;
-            //int vennapikkus = 0;
-            //int emapikkus = 0;
-            //int isapikkus = 0;
-            //Console.WriteLine("Mis sinu pikkus sentimeetrites?: ");
-            //kasutajapikkus = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Mis sinu venna pikkus sentimeetrites?: ");
-            //vennapikkus = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Mis sinu ema pikkus sentimeetrites?: ");
-            //emapikkus = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Mis sinu isa pikkus sentimeetrites?: ");
-            //isapikkus = int.Parse(Console.ReadLine());
-            //float perekeskmine = ((float)(kasutajapikkus+emapikkus+vennapikkus+isapikkus)/4)/100;
-            //float lastekeskmine = ((float)(kasutajapikkus+vennapikkus)/2)/100;
-            //float vanematekeskmine = ((float)(emapikkus+isapikkus)/2)/100;
-            //float vahe = 0;
-            //if (vanematekeskmine > lastekeskmine)
-            //{
-            //    vahe = vanematekeskmine - lastekeskmine;
-            //}
-            //else
-            //{
-            //    vahe = lastekeskmine - vanematekeskmine;
-            //}
-            //Console.WriteLine("perekeskmine on "+Math.Round(perekeskmine,2)+"m. vanematekeskmine on "+Math.Round(vanematekeskmine,2)+"m.\nlastekeksmine on "+Math.Round(lastekeskmine,2)+"m. kahe keskmise vahe on "+Math.Round(vahe,2)+"m.");
+    ///* näiteülesanne 7.1 - asenda switchcase if-elseif-elseiga*/
+    //Console.WriteLine("Palun sisesta esimene arv");
+    //float arv1 = 0.0f;
+    //arv1 = float.Parse(Console.ReadLine());
+
+    //Console.WriteLine("Palun sisesta teine arv");
+    //float arv2 = 0.0f;
+    //arv2 = float.Parse(Console.ReadLine());
+
+    //Console.WriteLine("Mis tüüpi tehet sa teha tahad? (valik: + - * / ^ V)");
+    //string tehteTüüp = "";
+    //tehteTüüp = Console.ReadLine();
+
+    //double tehteTulemus = 0.0d;
+
+    //if (tehteTüüp != "")
+    //{
+    //    switch (tehteTüüp)
+    //    {
+    //        default:
+    //            Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
+    //            return;
+    //        case "+":
+    //            tehteTulemus = arv1 + arv2;
+    //            break;
+    //        case "-":
+    //            tehteTulemus = arv1 - arv2;
+    //            break;
+    //        case "/":
+    //            tehteTulemus = arv1 / arv2;
+    //            break;
+    //        case "*":
+    //            tehteTulemus = arv1 * arv2;
+    //            break;
+    //        case "^":
+    //            tehteTulemus = Math.Pow(arv1, arv2);
+    //            break;
+    //        case "V":
+    //            tehteTulemus = Math.Pow(arv1, (1 / arv2));
+    //            break;
+    //    }
+    //    Console.WriteLine($"Tehte tulemus on: {arv1} {tehteTüüp} {arv2} = {tehteTulemus}");
+    //}
+    //else
+    //{
+    //    Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
+    //}
+    /* näiteülesanne 8 */
+    //kirjuta programm mis
+    //küsib kasutajatelt pikkust *sentimeetrites* 
+    //küsib tema teiste perekonnaliikmete pikkust (ema isa vend)
+    // programm arvutab välja perekonna keskmise pikkuse, vanemate keskmise pikkuse, laste keskmise pikkuse ja kahe keskmise vahe,
+    // kõik arvud peab programm esitama komakohtadega arvudena
+    //int kasutajapikkus = 0;
+    //int vennapikkus = 0;
+    //int emapikkus = 0;
+    //int isapikkus = 0;
+    //Console.WriteLine("Mis sinu pikkus sentimeetrites?: ");
+    //kasutajapikkus = int.Parse(Console.ReadLine());
+    //Console.WriteLine("Mis sinu venna pikkus sentimeetrites?: ");
+    //vennapikkus = int.Parse(Console.ReadLine());
+    //Console.WriteLine("Mis sinu ema pikkus sentimeetrites?: ");
+    //emapikkus = int.Parse(Console.ReadLine());
+    //Console.WriteLine("Mis sinu isa pikkus sentimeetrites?: ");
+    //isapikkus = int.Parse(Console.ReadLine());
+    //float perekeskmine = ((float)(kasutajapikkus+emapikkus+vennapikkus+isapikkus)/4)/100;
+    //float lastekeskmine = ((float)(kasutajapikkus+vennapikkus)/2)/100;
+    //float vanematekeskmine = ((float)(emapikkus+isapikkus)/2)/100;
+    //float vahe = 0;
+    //if (vanematekeskmine > lastekeskmine)
+    //{
+    //    vahe = vanematekeskmine - lastekeskmine;
+    //}
+    //else
+    //{
+    //    vahe = lastekeskmine - vanematekeskmine;
+    //}
+    //Console.WriteLine("perekeskmine on "+Math.Round(perekeskmine,2)+"m. vanematekeskmine on "+Math.Round(vanematekeskmine,2)+"m.\nlastekeksmine on "+Math.Round(lastekeskmine,2)+"m. kahe keskmise vahe on "+Math.Round(vahe,2)+"m.");
 
 
-            //List<int> vanused = new List<int>();
-            //List<string> isikud = new List<string>() {"sinu", "oma venna", "oma isa", "oma ema"};
-            //int i = 0;
-            //do
-            //{
-            //    Console.WriteLine("Sisesta "+isikud.ElementAt(i)+" pikkus sentimeetrites");
-            //    //kuvame kasutajale teate, koos isikuga mida adresseeritakse tsüklimuutuja abil järjendist "isikud"
-            //    vanused.Add(int.Parse(Console.ReadLine()));
-            //    //.Add on listi meetod elemendi lisamiseks, lisatakse otse parsitud täisarv käsurea pealt
-            //    i++;
-            //    // suurendame i-d ühe võrra
-            //} while (i < isikud.Count);
+    //List<int> vanused = new List<int>();
+    //List<string> isikud = new List<string>() {"sinu", "oma venna", "oma isa", "oma ema"};
+    //int i = 0;
+    //do
+    //{
+    //    Console.WriteLine("Sisesta "+isikud.ElementAt(i)+" pikkus sentimeetrites");
+    //    //kuvame kasutajale teate, koos isikuga mida adresseeritakse tsüklimuutuja abil järjendist "isikud"
+    //    vanused.Add(int.Parse(Console.ReadLine()));
+    //    //.Add on listi meetod elemendi lisamiseks, lisatakse otse parsitud täisarv käsurea pealt
+    //    i++;
+    //    // suurendame i-d ühe võrra
+    //} while (i < isikud.Count);
 
-            //float perekeskmine = ((float)(vanused.ElementAt(0) + vanused.ElementAt(3) + vanused.ElementAt(1) + vanused.ElementAt(2)) / 4) / 100;
-            //float lastekeskmine = ((float)(vanused.ElementAt(0) + vanused.ElementAt(1)) / 2) / 100;
-            //float vanematekeskmine = ((float)(vanused.ElementAt(3) + vanused.ElementAt(2)) / 2) / 100;
-            //float vahe = 0;
-            //if (vanematekeskmine > lastekeskmine)
-            //{
-            //    vahe = vanematekeskmine - lastekeskmine;
-            //}
-            //else
-            //{
-            //    vahe = lastekeskmine - vanematekeskmine;
-            //}
-            //Console.WriteLine("perekeskmine on " + Math.Round(perekeskmine, 2) + "m. vanematekeskmine on " + Math.Round(vanematekeskmine, 2) + "m.\nlastekeksmine on " + Math.Round(lastekeskmine, 2) + "m. kahe keskmise vahe on " + Math.Round(vahe, 2) + "m.");
+    //float perekeskmine = ((float)(vanused.ElementAt(0) + vanused.ElementAt(3) + vanused.ElementAt(1) + vanused.ElementAt(2)) / 4) / 100;
+    //float lastekeskmine = ((float)(vanused.ElementAt(0) + vanused.ElementAt(1)) / 2) / 100;
+    //float vanematekeskmine = ((float)(vanused.ElementAt(3) + vanused.ElementAt(2)) / 2) / 100;
+    //float vahe = 0;
+    //if (vanematekeskmine > lastekeskmine)
+    //{
+    //    vahe = vanematekeskmine - lastekeskmine;
+    //}
+    //else
+    //{
+    //    vahe = lastekeskmine - vanematekeskmine;
+    //}
+    //Console.WriteLine("perekeskmine on " + Math.Round(perekeskmine, 2) + "m. vanematekeskmine on " + Math.Round(vanematekeskmine, 2) + "m.\nlastekeksmine on " + Math.Round(lastekeskmine, 2) + "m. kahe keskmise vahe on " + Math.Round(vahe, 2) + "m.");
 
-            ///* näiteülesanne 9 - sünoptiku sõnum*/
+    ///* näiteülesanne 9 - sünoptiku sõnum*/
 
-            //// kirjuta programm mis küsib kasutajalt viie järgmise päeva temperatuuri ja ilma kirjeldust
-            //// kui sünoptik on sisestused lõpetanud, kuva viis rida, mis kirjeldab viis päeva mõlema omadusega
+    //// kirjuta programm mis küsib kasutajalt viie järgmise päeva temperatuuri ja ilma kirjeldust
+    //// kui sünoptik on sisestused lõpetanud, kuva viis rida, mis kirjeldab viis päeva mõlema omadusega
 
-            //Console.WriteLine("Tere sünoptik, ");
-            //float[] temps = new float[5]; // temperatuuride massiiv
-            //string[] kirjeldused = new string[5]; // kirjelduste massiiv
-            //for (int i = 0; i < temps.Length; i++) //võtame sünoptikult temperatuuri andmed ükshaaval
-            //{
-            //    Console.WriteLine("esita palun järgmine temperatuur:");
-            //    temps[i] = float.Parse(Console.ReadLine());
-            //}
-            //Console.WriteLine("Ole kirjelda ka eesolev nädal, ");
-            //for (int i = 0; i < kirjeldused.Length; i++) //võtame sünoptikult päeva kirjelduse andmed ükshaaval
-            //{
-            //    Console.WriteLine("kirjelda "+(i+1)+". päeva:");
-            //    kirjeldused[i] = Console.ReadLine();
-            //}
-            //Console.WriteLine("Palun edasta uudistejaamale ilmateade:");
-            //for (int i = 0; i < temps.Length; i++)
-            //{
-            //    Console.WriteLine((i+1)+". päeval on temperatuur " + temps[i]+" kraadi ja ilm on " + kirjeldused[i]+".");
-            //} 
+    //Console.WriteLine("Tere sünoptik, ");
+    //float[] temps = new float[5]; // temperatuuride massiiv
+    //string[] kirjeldused = new string[5]; // kirjelduste massiiv
+    //for (int i = 0; i < temps.Length; i++) //võtame sünoptikult temperatuuri andmed ükshaaval
+    //{
+    //    Console.WriteLine("esita palun järgmine temperatuur:");
+    //    temps[i] = float.Parse(Console.ReadLine());
+    //}
+    //Console.WriteLine("Ole kirjelda ka eesolev nädal, ");
+    //for (int i = 0; i < kirjeldused.Length; i++) //võtame sünoptikult päeva kirjelduse andmed ükshaaval
+    //{
+    //    Console.WriteLine("kirjelda "+(i+1)+". päeva:");
+    //    kirjeldused[i] = Console.ReadLine();
+    //}
+    //Console.WriteLine("Palun edasta uudistejaamale ilmateade:");
+    //for (int i = 0; i < temps.Length; i++)
+    //{
+    //    Console.WriteLine((i+1)+". päeval on temperatuur " + temps[i]+" kraadi ja ilm on " + kirjeldused[i]+".");
+    //} 
 
-            /*
+    /*
 int arv
 do
 {
-    Console.WriteLine("Sisesta oma arv: ");
-    arv = int.Parse(Console.ReadLine());
+Console.WriteLine("Sisesta oma arv: ");
+arv = int.Parse(Console.ReadLine());
 }
 while (arv > 0);
 Console.WriteLine("Arv ei ole suurem kui 0");
 */
-            /*
-            int aasta = 0;
-            Console.WriteLine("Sisesta aastaarv(1000 - 2025): ");
-            aasta = int.Parse(Console.ReadLine());
-            while (aasta > 1000 || aasta < 2025)
-            {
-                Console.WriteLine("Vale aasta. Sisesta aasta (1000 - 2025): ");
-                aasta = int.Parse(Console.ReadLine());
-            }
-            Console.WriteLine("Sisestasid sobiva aastaarvu:" + aasta );
-            */
-            /*
-            string[] ideed = {"Raamat", "Komm", "Sokid", "Mäng", "Shokolaad"};
-            for (int i = 0; i < ideed.Length; i++)
-            {
-                Console.WriteLine((i + 1) + ". " + ideed[i]);
-            }
-            */
-            /*
-            int[] arvud = {2,3,4,5,6};
-            int korrutis = 1;
-            foreach (int arv in arvud)
-            {
-                korrutis *= arv;    
-            }
-            Console.WriteLine("Arvude korrutis on: " + korrutis);
-            */
+    /*
+    int aasta = 0;
+    Console.WriteLine("Sisesta aastaarv(1000 - 2025): ");
+    aasta = int.Parse(Console.ReadLine());
+    while (aasta > 1000 || aasta < 2025)
+    {
+        Console.WriteLine("Vale aasta. Sisesta aasta (1000 - 2025): ");
+        aasta = int.Parse(Console.ReadLine());
+    }
+    Console.WriteLine("Sisestasid sobiva aastaarvu:" + aasta );
+    */
+    /*
+    string[] ideed = {"Raamat", "Komm", "Sokid", "Mäng", "Shokolaad"};
+    for (int i = 0; i < ideed.Length; i++)
+    {
+        Console.WriteLine((i + 1) + ". " + ideed[i]);
+    }
+    */
+    /*
+    int[] arvud = {2,3,4,5,6};
+    int korrutis = 1;
+    foreach (int arv in arvud)
+    {
+        korrutis *= arv;    
+    }
+    Console.WriteLine("Arvude korrutis on: " + korrutis);
+    */
 
-            ///* näiteülesanne 10 - graafik*/
-            //// andmed mida graafikuna kujutada tahetakse
-            //List<float> graphData = new List<float>()
-            //{
-            //    -3.6f, //negatiivne
-            //    0,     //0
-            //    0,
-            //    -4.5f,
-            //    23.8f, //positiivne
-            //    90f,   //max value
-            //    42.2f,
-            //    -5,2f,
-            //    0,
-            //    0,
-            //    7f,
-            //    6f,
-            //};
-            ////graafiku joonistamise jaoks vajalik keskpunkti asukoht ühes reas
-            //int keskPunkt = 45;
-            ////foreach tsükkel töötleb andmed läbi
-            //foreach (var unitOfData in graphData)
-            //{
-            //    //kuvatav rida, hetkel tühi
-            //    string displayableData = "";
+    ///* näiteülesanne 10 - graafik*/
+    //// andmed mida graafikuna kujutada tahetakse
+    //List<float> graphData = new List<float>()
+    //{
+    //    -3.6f, //negatiivne
+    //    0,     //0
+    //    0,
+    //    -4.5f,
+    //    23.8f, //positiivne
+    //    90f,   //max value
+    //    42.2f,
+    //    -5,2f,
+    //    0,
+    //    0,
+    //    7f,
+    //    6f,
+    //};
+    ////graafiku joonistamise jaoks vajalik keskpunkti asukoht ühes reas
+    //int keskPunkt = 45;
+    ////foreach tsükkel töötleb andmed läbi
+    //foreach (var unitOfData in graphData)
+    //{
+    //    //kuvatav rida, hetkel tühi
+    //    string displayableData = "";
 
-            //    //normaliseeritud andmed keskpunkti suhtes
-            //    float calculatedData = keskPunkt + unitOfData;
+    //    //normaliseeritud andmed keskpunkti suhtes
+    //    float calculatedData = keskPunkt + unitOfData;
 
-            //    //while-tsükli muutuja
-            //    int i = 0;
-            //    while (i < 90) //tsükkel töötab niikaua kuni i ei ole 90 ega suurem
-            //    {
-            //        //sm0 rea alguspunk nmähtavale pulgale, mitte tühjale alale
-            //        int sm0 = (int)(45 + unitOfData);
+    //    //while-tsükli muutuja
+    //    int i = 0;
+    //    while (i < 90) //tsükkel töötab niikaua kuni i ei ole 90 ega suurem
+    //    {
+    //        //sm0 rea alguspunk nmähtavale pulgale, mitte tühjale alale
+    //        int sm0 = (int)(45 + unitOfData);
 
-            //        if (0 >= i && i < sm0) 
-            //        //kui i on vahemikus 0 ja sm0, 
-            //        {   displayableData += "░";   } //siis joonistame tumeda tähemärgi
-            //        else if (sm0 >= i && i < 45) 
-            //        //kui i on vahemikus sm0 ja 45, 
-            //        {   displayableData += "░"; } //siis joonistame tumeda tähemärgi
-            //        else if (sm0 >= i && i < 90) 
-            //        //kui i on vahemikus sm0 ja 90, 
-            //        {   displayableData += "▓"; } //siis joonistame heleda tähemärgi
-            //        else if (45 >= i && i < sm0)
-            //        //kui i on vahemikus 45 ja sm0, 
-            //        { displayableData += "▓"; } //siis joonistame heleda tähemärgi
-            //        else if ( i >= sm0 && i < 45)
-            //        //kui i on vahemikus sm0 ja 45, 
-            //        { displayableData += "▓"; }//siis joonistame heleda tähemärgi
-            //        else if (i == 45)
-            //        {
-            //            { displayableData += "║"; } //siis joonistame pulga tähemärgi
-            //        }
-            //        else
-            //        // kõikide muude puhul joonistame tumeda tähemärgi
-            //        {   displayableData += "░";   }
-            //        i++;
-            //    }
-            //    Console.WriteLine(displayableData);
-            //}
+    //        if (0 >= i && i < sm0) 
+    //        //kui i on vahemikus 0 ja sm0, 
+    //        {   displayableData += "░";   } //siis joonistame tumeda tähemärgi
+    //        else if (sm0 >= i && i < 45) 
+    //        //kui i on vahemikus sm0 ja 45, 
+    //        {   displayableData += "░"; } //siis joonistame tumeda tähemärgi
+    //        else if (sm0 >= i && i < 90) 
+    //        //kui i on vahemikus sm0 ja 90, 
+    //        {   displayableData += "▓"; } //siis joonistame heleda tähemärgi
+    //        else if (45 >= i && i < sm0)
+    //        //kui i on vahemikus 45 ja sm0, 
+    //        { displayableData += "▓"; } //siis joonistame heleda tähemärgi
+    //        else if ( i >= sm0 && i < 45)
+    //        //kui i on vahemikus sm0 ja 45, 
+    //        { displayableData += "▓"; }//siis joonistame heleda tähemärgi
+    //        else if (i == 45)
+    //        {
+    //            { displayableData += "║"; } //siis joonistame pulga tähemärgi
+    //        }
+    //        else
+    //        // kõikide muude puhul joonistame tumeda tähemärgi
+    //        {   displayableData += "░";   }
+    //        i++;
+    //    }
+    //    Console.WriteLine(displayableData);
+    //}
 
-            //Teeme auto
-            Car minuParsa = new Car(
+    //Teeme auto
+    Car minuParsa = new Car(
                 "Yaris", CarMark.Toyota,
                 "ABC 123",
                 "vene kollane",
